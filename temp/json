@@ -1,0 +1,46 @@
+questData = [
+	{questId: id,
+	questName: name,
+	questEntries: [
+		{entryText: text,
+		entryIndex: index,
+		entryFinish: finish},
+		...
+		]
+	},...
+]
+
+questData = {
+	questId : 
+	{questName: name,
+	questEntries: {
+		infoId : 
+		{entryText: text,
+		entryIndex: index,
+		entryFinish: finish
+		entryPrevId: id,
+		entryNextId: id},
+		...
+		}
+	},...
+}
+
+topicsData = [{"topicName": name,
+               "topicAnswers": [{
+                   "topicFilter": [],
+                   "topicNpc": npc,
+                   "topicCell": cell,
+                   "topicText": text,
+                   "topicResult": result,
+                   "topicDisp": disp
+               }]}]
+
+
+addQuestById(payload=questId)
+setQuestName(payload=questId, questName)
+addQuestEntryById(payload=questId, entryId)
+setEntryText(payload=questId, entryId, entryText)
+entryIndex
+entryFinish
+entryPrevId
+entryNextId
