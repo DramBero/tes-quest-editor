@@ -8,25 +8,17 @@ import { useDispatch } from 'react-redux';
 import { 
     setJournal
 } from '../redux/journalSlice'
+import tg from '../input/tg';
 
-
-const plugin = "http://localhost:3000/input/tra.json";
+const plugin = tg;
 
 function WorkArea() {
     const dispatch = useDispatch()
-    const [pluginData, setPluginData] = React.useState([[], [], [], []])
     const [parsedData, setParsedData] = React.useState([[], [], [], []])
-    
 
     React.useEffect(() => {
-        fetch(plugin).then((resp) => resp.json()).then((json) => {
-            setPluginData(json)
-        });
-    }, []);
-
-    React.useEffect(() => {
-        setParsedData(getJournalData(pluginData))
-    }, [pluginData]);
+        setParsedData(getJournalData(plugin))
+    }, [plugin]);
 
     React.useEffect(() => {
         dispatch(setJournal(parsedData[0]))

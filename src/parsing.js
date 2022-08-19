@@ -61,19 +61,20 @@ function getJournalData(pluginData) {
                     }
                     if ("text" in pluginData[i+j]) {
                         let infoId = pluginData[i+j]["info_id"]
-                        if (pluginData[i+j]["quest_name"] === 1) {
-                            journalData[questId]['questEntries'][infoId]["isQuestName"] = true
-                        }
-                        else {
-                            journalData[questId]['questEntries'][infoId]["isQuestName"] = false
-                        }
                         if (journalData[questId]['questEntries'].hasOwnProperty(infoId) === false) {
                             journalData[questId]['questEntries'][infoId] = {'questName': '', 
                                                             'entryText': '', 
                                                             'entryIndex': 0, 
                                                             'entryFinish': false, 
                                                             'prevId': 0, 
-                                                            'nextId': 0}
+                                                            'nextId': 0,
+                                                            'isQuestName': false}
+                        }
+                        if (pluginData[i+j]["quest_name"] === 1) {
+                            journalData[questId]['questEntries'][infoId]["isQuestName"] = true
+                        }
+                        else {
+                            journalData[questId]['questEntries'][infoId]["isQuestName"] = false
                         }
                         journalData[questId]['questEntries'][infoId]["entryText"] = pluginData[i+j]["text"]
                         journalData[questId]['questEntries'][infoId]["prevId"] = pluginData[i+j]["prev_id"]

@@ -20,7 +20,7 @@ import { CSSTransition } from 'react-transition-group';
   */
 
 const generateId = () => {
-    return Math.floor(Math.random() * 99999999999999999999).toString()
+    return Math.floor(Math.random() * 9999999999).toString() + Math.floor(Math.random() * 9999999999).toString()
 }
 
 function JournalQuest(props) {
